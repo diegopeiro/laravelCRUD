@@ -2,6 +2,10 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EjercicioController;
+
+//Ruta al recurso del controlador que hemos creado llamado Ejercicios
+Route::resource('ejercicios', EjercicioController::class)->middleware(['auth']);
 
 Route::get('/', function () {
     return view('welcome');
