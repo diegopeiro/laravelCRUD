@@ -8,7 +8,7 @@ use App\Http\Controllers\EjercicioController;
 Route::resource('ejercicios', EjercicioController::class)->middleware(['auth']);
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('grindWelcome');
 });
 
 Route::get('/dashboard', function () {
