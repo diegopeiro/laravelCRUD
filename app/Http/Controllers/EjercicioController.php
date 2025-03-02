@@ -5,29 +5,44 @@ namespace App\Http\Controllers;
 use App\Models\Ejercicio;
 use Illuminate\Http\Request;
 
+
+/**
+ * Cuando llamas a view('ejercicios.create'), 
+ * Laravel automáticamente busca dentro de la carpeta resources/views/
+ * y asume que es un archivo .blade.php. En mi caso busca en la carpeta ejercicios por eso 
+ * todos los return view son 'ejercicios.xxx'
+ */
 class EjercicioController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
+     * 
+     * Muestro la lista de ejercicios en la vista index.blade.php
      */
     public function index()
     {
         //
-        $ejercicio = Ejercicio::all();
+        $ejercicios = Ejercicio::all();
+        //Envio los datos a la vista ejercicios.index de una manera limpia
         return view('ejercicios.index', compact('ejercicios'));
     }
 
     /**
      * Show the form for creating a new resource.
+     * 
+     * Muestro el formulario para agregar un nuevo ejercicio
      */
     public function create()
     {
-        //
+        //Devuelvo la vista ejercicios.create.blade
         return view('ejercicios.create');
     }
 
     /**
      * Store a newly created resource in storage.
+     * 
+     * Guarda el nuevo ejercicio en la base de datos.
      */
     public function store(Request $request)
     {
@@ -54,6 +69,8 @@ class EjercicioController extends Controller
 
     /**
      * Show the form for editing the specified resource.
+     * 
+     * Muestra el formulario para editar un ejercicio existente.
      */
     public function edit(Ejercicio $ejercicio)
     {
@@ -63,6 +80,8 @@ class EjercicioController extends Controller
 
     /**
      * Update the specified resource in storage.
+     * 
+     * Actualiza un ejercicio en la base de datos.
      */
     public function update(Request $request, Ejercicio $ejercicio)
     {
@@ -81,10 +100,12 @@ class EjercicioController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     * 
+     * Elimina un ejercicio de la base de datos.
      */
     public function destroy(Ejercicio $ejercicio)
     {
-        //
+        //Elimina el ejercicio
         $ejercicio->delete();
         return redirect()->route('ejercicios.index')->with('success', 'Ejercicio eliminado.');
     }
