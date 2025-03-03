@@ -18,8 +18,9 @@
         </div>
 
         <div>
+            <!--Limitar la descripcion a 50 caracteres (por ejemplo)-->
             <label for="descripcion" class="block text-gray-700 font-medium">Descripción</label>
-            <textarea name="descripcion" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300">{{ old('descripcion', $ejercicio->descripcion ?? '') }}</textarea>
+            <textarea name="descripcion" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300" maxlength="50">{{ old('descripcion', $ejercicio->descripcion ?? '') }}</textarea>
         </div>
 
         <div>

@@ -19,6 +19,7 @@
             <thead class="bg-gray-100 text-gray-700 uppercase text-sm">
                 <tr>
                     <th class="py-3 px-6 text-left">Nombre</th>
+                    <th class="py-3 px-6 text-left">Descripcion</th>
                     <th class="py-3 px-6 text-left">Duración</th>
                     <th class="py-3 px-6 text-left">Categoría</th>
                     <th class="py-3 px-6 text-left">Acciones</th>
@@ -28,8 +29,10 @@
                 @foreach ($ejercicios as $ejercicio)
                     <tr class="border-b hover:bg-gray-50">
                         <td class="py-3 px-6">{{ $ejercicio->nombre }}</td>
+                        <td class="py-3 px-6">{{ $ejercicio->descripcion }}</td>
                         <td class="py-3 px-6">{{ $ejercicio->duracion }} min</td>
                         <td class="py-3 px-6">{{ $ejercicio->categoria }}</td>
+                        <!--Botones acciones-->
                         <td class="py-3 px-6 flex space-x-2">
                             <a href="{{ route('ejercicios.edit', $ejercicio) }}" class="bg-yellow-500 text-white px-3 py-1 rounded-md hover:bg-yellow-600 transition">
                                 Editar
