@@ -5,7 +5,10 @@
 
         <!-- Menú de navegación -->
         <div class="flex items-center space-x-4">
+            <!--Enlace a tabla Ejercicios-->
             <a href="{{ route('ejercicios.index') }}" class="hover:underline">Ejercicios</a>
+            <!--Enlace a tabla Categorías-->
+            <a href="{{ route('categorias.index') }}" class="hover:underline">Categoría</a>
 
             @auth
                 <!-- Mostrar nombre del usuario autenticado -->
