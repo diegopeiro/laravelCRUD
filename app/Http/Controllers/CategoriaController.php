@@ -13,6 +13,9 @@ class CategoriaController extends Controller
     public function index()
     {
         //
+        $categorias = Categoria::all();
+        //Envio los datos a la vista ejercicios.index de una manera limpia
+        return view('categorias.index', compact('categorias'));
     }
 
     /**
@@ -20,7 +23,9 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        //
+        //Devuelvo la vista ejercicios.create.blade
+        return view('categorias.create');
+
     }
 
     /**
@@ -29,6 +34,13 @@ class CategoriaController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+        ]);
+
+        Ejercicio::create($request->all());
+
+        return redirect()->route('categorias.index')->with('success','Categoría creada exitosamente.');
     }
 
     /**
@@ -44,7 +56,8 @@ class CategoriaController extends Controller
      */
     public function edit(Categoria $categoria)
     {
-        //
+        //Vista blade categorias/edit.blade.php
+        return view('categorias.edit', compact('categoria'));
     }
 
     /**
@@ -52,7 +65,14 @@ class CategoriaController extends Controller
      */
     public function update(Request $request, Categoria $categoria)
     {
-        //
+        //Modificaciones categorias
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+        ]);
+
+        $categoria->update($request->all());
+
+        return redirect()->route('categorias.index')->with('success', 'Categoría actualizada.');
     }
 
     /**
@@ -60,6 +80,8 @@ class CategoriaController extends Controller
      */
     public function destroy(Categoria $categoria)
     {
-        //
+        //Eliminar
+        $categoria->delete();
+        return redirect()->routeroute('categorias.index')->with('success', 'Categoría eliminada.');
     }
 }

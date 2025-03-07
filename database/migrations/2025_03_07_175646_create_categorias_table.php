@@ -11,16 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //Atributos de la tabla categorías
         Schema::create('categorias', function (Blueprint $table) {
             $table->id();
             $table->string('nombre')->unique();
+            $table->text('descripcion')->nullable(); 
+            $table->string('musculos_trabaja'); 
+            $table->integer('nivel_fatiga'); 
             $table->timestamps();
-        });
-
-        //Agrego la clave foránea (FK) en la tabla ejercicios
-        Schema::table('ejercicios', function (Blueprint $table) {
-            $table->foreignId('categoria_id')->nullable()->constrained('categorias')->onDelete('set null');
         });
     }
 
@@ -29,14 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //Modifico tabla ejercicios
-        Schema::table('ejercicios', function (Blueprint $table) {
-            //Dropeo fk
-            $table->dropForeign(['categoria_id']);
-            //Elimino columna
-            $table->dropColumn('categoria_id');
-        });
-
         Schema::dropIfExists('categorias');
     }
 };

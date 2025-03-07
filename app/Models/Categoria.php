@@ -11,12 +11,12 @@ class Categoria extends Model
     use HasFactory;
 
     //Campos de la tabla 
-    protected $fillable = ['nombre'];
+    protected $fillable = ['nombre','descripcion','musculos_trabaja','nivel_fatiga'];
 
     // Relación 1 a N: Una categoría tiene muchos ejercicios
     public function ejercicios()
     {
-        return $this->hasMany(Ejercicio::class);
+        return $this->hasMany(Ejercicio::class, 'categoria_id');
     }
 
 

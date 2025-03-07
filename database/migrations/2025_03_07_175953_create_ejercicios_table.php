@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //Campos necesarios de la tabla
         Schema::create('ejercicios', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
+            $table->string('nombre')->unique();
             $table->text('descripcion');
             $table->integer('duracion');
-            //Categorías: Fuerza, Pliometría, Resistencia, Velocidad...
-            $table->string('categoria');
+            //Categorías FK tabla Categorias
+            //Fuerza, Pliometría, Resistencia, Velocidad...
+            $table->foreignId('categoria_id')->nullable()->constrained('categorias')->onDelete('set null'); 
             $table->timestamps();
         });
     }

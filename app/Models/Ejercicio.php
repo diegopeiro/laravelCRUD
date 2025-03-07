@@ -11,11 +11,11 @@ class Ejercicio extends Model
     use HasFactory;
 
     //Defino dichos campos
-    protected $fillable = ['nombre', 'descripcion', 'duracion', 'categoria'];
+    protected $fillable = ['nombre', 'descripcion', 'duracion', 'categoria_id'];
 
     //Agrego la relación a categoria
     public function categoria()
-{
-    return $this->belongsTo(Categoria::class);
-}
+    {
+        return $this->belongsTo(Categoria::class, 'categoria_id');
+    }
 }
