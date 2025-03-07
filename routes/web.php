@@ -8,10 +8,14 @@ use App\Http\Controllers\EjercicioController;
 //Ruta al recurso del controlador que hemos creado llamado Ejercicios
 Route::resource('ejercicios', EjercicioController::class)->middleware(['auth']);
 
+//Ruta al recurso del controlador que hemos creado llamado Categorias
+Route::resource('categorias', CategoriaController::class)->middleware(['auth']);
+
 //Ruta página bienvenida
 Route::get('/', function () {
     return view('grindWelcome');
-});
+});//Ruta al recurso del controlador que hemos creado llamado Ejercicios
+Route::resource('ejercicios', EjercicioController::class)->middleware(['auth']);
 
 //RUta a la dashboard
 Route::get('/dashboard', function () {
