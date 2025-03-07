@@ -13,4 +13,9 @@ class Ejercicio extends Model
     //Defino dichos campos
     protected $fillable = ['nombre', 'descripcion', 'duracion', 'categoria'];
 
+    //Agrego la relación a categoria
+    public function categoria()
+{
+    return $this->belongsTo(Categoria::class);
+}
 }
