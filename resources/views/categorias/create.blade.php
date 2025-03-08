@@ -20,13 +20,13 @@
         <div>
             <!--Limitar la descripcion a 50 caracteres (por ejemplo)-->
             <label for="descripcion" class="block text-gray-700 font-medium">Descripción</label>
-            <textarea name="descripcion" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300" maxlength="50">{{ old('descripcion', $categoria->descripcion ?? '') }}</textarea>
+            <textarea name="descripcion" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300" maxlength="300">{{ old('descripcion', $categoria->descripcion ?? '') }}</textarea>
         </div>
 
         <div>
             <!--Enlos names poner el mismo nombre que la columna de la bbdd-->
             <label for="musculos_trabaja" class="block text-gray-700 font-medium">¿Qué músculos trabaja esta categoría?</label>
-            <textarea name="musculos_trabaja" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300" maxlength="50">{{ old('musculos_trabaja', $categoria->musculos_trabaja ?? '') }}</textarea>
+            <textarea name="musculos_trabaja" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300" maxlength="300">{{ old('musculos_trabaja', $categoria->musculos_trabaja ?? '') }}</textarea>
         </div>
 
         <div>

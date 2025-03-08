@@ -36,8 +36,8 @@ class CategoriaController extends Controller
         //
         $request->validate([
             'nombre' => 'required|string|max:255',
-            'descripcion' => 'nullable|string|max:50',
-            'musculos_trabaja' => 'nullable|string|max:50',
+            'descripcion' => 'nullable|string|max:300',
+            'musculos_trabaja' => 'nullable|string|max:300',
             'nivel_fatiga' => 'required|integer|min:1',
         ]);
 
