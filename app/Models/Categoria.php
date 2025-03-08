@@ -16,7 +16,7 @@ class Categoria extends Model
     // Relación 1 a N: Una categoría tiene muchos ejercicios
     public function ejercicios()
     {
-        return $this->hasMany(Ejercicio::class, 'categoria_id');
+        return $this->hasMany(Ejercicio::class, 'id');
     }
 
 

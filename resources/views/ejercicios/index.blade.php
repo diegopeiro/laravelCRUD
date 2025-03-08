@@ -31,7 +31,7 @@
                         <td class="py-3 px-6">{{ $ejercicio->nombre }}</td>
                         <td class="py-3 px-6">{{ $ejercicio->descripcion }}</td>
                         <td class="py-3 px-6">{{ $ejercicio->duracion }} min</td>
-                        <td class="py-3 px-6">{{ $ejercicio->categoria }}</td>
+                        <td class="py-3 px-6">{{ $ejercicio->categoria->nombre ?? 'Sin categoria'}}</td>
                         <!--Botones acciones-->
                         <td class="py-3 px-6 flex space-x-2">
                             <a href="{{ route('ejercicios.edit', $ejercicio) }}" class="bg-yellow-500 text-white px-3 py-1 rounded-md hover:bg-yellow-600 transition">

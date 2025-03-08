@@ -20,7 +20,7 @@
         <div>
             <!--Limitar la descripcion a 50 caracteres (por ejemplo)-->
             <label for="descripcion" class="block text-gray-700 font-medium">Descripción</label>
-            <textarea name="descripcion" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300" maxlength="50">{{ old('descripcion', $ejercicio->descripcion ?? '') }}</textarea>
+            <textarea name="descripcion" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300" maxlength="300">{{ old('descripcion', $ejercicio->descripcion ?? '') }}</textarea>
         </div>
 
         <div>
@@ -28,7 +28,7 @@
             <input type="number" name="duracion" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300" value="{{ old('duracion', $ejercicio->duracion ?? '') }}">
         </div>
 
-        <!--Con un select recoger los tipos de categorías de la tabla categoria para poder elegir
+        <!--Con un select recoger los tipos de categorías de la tabla categoria para poder elegir-->
         <div>
             <label for="categoria_id" class="block text-gray-700 font-medium">Categoría</label>
             <select name="categoria_id" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300">
@@ -39,7 +39,7 @@
                     </option>
                 @endforeach
             </select>
-        </div>-->
+        </div>
 
         <div class="flex justify-between items-center mt-4">
             <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition">

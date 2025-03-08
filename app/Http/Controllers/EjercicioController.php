@@ -25,8 +25,9 @@ class EjercicioController extends Controller
     {
         //
         $ejercicios = Ejercicio::all();
+        $categorias = Categoria::all();  
         //Envio los datos a la vista ejercicios.index de una manera limpia
-        return view('ejercicios.index', compact('ejercicios'));
+        return view('ejercicios.index', compact('ejercicios','categorias'));
     }
 
     /**
@@ -39,7 +40,7 @@ class EjercicioController extends Controller
         
         //Devuelvo la vista ejercicios.create.blade
         $categorias = Categoria::all();  
-        return view('ejercicios.create');
+        return view('ejercicios.create', compact('categorias'));
     }
 
     /**
@@ -54,10 +55,13 @@ class EjercicioController extends Controller
             'nombre' => 'required|string|max:255',
             'descripcion' => 'required',
             'duracion' => 'required|integer|min:1',
-            'categoria' => 'required|string|max:255',
+            'categoria_id' => 'required|string|max:255',
         ]);
 
-        Ejercicio::create($request->all());
+        $datos = $request->only("nombre", "descripcion", "duracion", "categoria_id");
+
+        $datos = new Ejercicio($datos);
+        $datos->save();    
 
         return redirect()->route('ejercicios.index')->with('success','Ejercicio creado exitosamente.');
     }
@@ -93,7 +97,7 @@ class EjercicioController extends Controller
             'nombre' => 'required|string|max:255',
             'descripcion' => 'required',
             'duracion' => 'required|integer|min:1',
-            'categoria' => 'required|string|max:255',
+            'categoria_id' => 'required|string|max:255',
         ]);
 
         $ejercicio->update($request->all());
