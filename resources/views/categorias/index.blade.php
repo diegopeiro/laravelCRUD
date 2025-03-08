@@ -31,7 +31,7 @@
                         <td class="py-3 px-6">{{ $categoria->nombre }}</td>
                         <td class="py-3 px-6">{{ $categoria->descripcion }}</td>
                         <td class="py-3 px-6">{{ $categoria->musculos_trabaja }} </td>
-                        <td class="py-3 px-6">{{ $categoria->nivel_fatiga }} min</td>
+                        <td class="py-3 px-6">{{ $categoria->nivel_fatiga }}</td>
                         <!--Botones acciones-->
                         <td class="py-3 px-6 flex space-x-2">
                             <a href="{{ route('categorias.edit', $categoria) }}" class="bg-yellow-500 text-white px-3 py-1 rounded-md hover:bg-yellow-600 transition">

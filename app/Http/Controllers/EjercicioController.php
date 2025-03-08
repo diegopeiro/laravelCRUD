@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ejercicio;
+use App\Models\Categoria;
 use Illuminate\Http\Request;
 
 
@@ -37,6 +38,7 @@ class EjercicioController extends Controller
     {
         
         //Devuelvo la vista ejercicios.create.blade
+        $categorias = Categoria::all();  
         return view('ejercicios.create');
     }
 
@@ -73,12 +75,12 @@ class EjercicioController extends Controller
      * 
      * Muestra el formulario para editar un ejercicio existente.
      */
-    public function edit(Ejercicio $ejercicio)
+    public function edit($id)
     {
-        //
-        return view('ejercicios.edit', compact('ejercicio'));
+        $ejercicio = Ejercicio::findOrFail($id);
+        $categorias = Categoria::all();  // Recupera todas las categorías
+        return view('ejercicios.edit', compact('ejercicio', 'categorias'));
     }
-
     /**
      * Update the specified resource in storage.
      * 

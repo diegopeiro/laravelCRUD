@@ -1,19 +1,8 @@
-<nav class="bg-blue-600 p-4 text-white ">
+<nav class="bg-orange-600 p-4 text-white ">
     <div class="container mx-auto flex justify-between items-center">
         <!-- Logo o enlace al Dashboard -->
-        <a href="{{ route('dashboard') }}" class="font-bold text-lg">🏀 Entrenamiento</a>
+        <a href="{{ route('dashboard') }}" class="font-bold text-lg">grind.</a>
 
-        <!-- Menú de navegación -->
-        <div class="flex justify-center flex-grow">
-            <!--Centro los enlaces a las tablas-->
-            <div class="flex space-x-4">
-                <!--Enlace a tabla Categorías-->
-                <a href="{{ route('categorias.index') }}" class="hover:underline">Categorias</a>
-                <!--Enlace a tabla Ejercicios-->
-                <a href="{{ route('ejercicios.index') }}" class="hover:underline">Ejercicios</a>
-            </div>
-        </div>
-                
         <div class="flex items-center space-x-4">
             @auth
                 <!-- Mostrar nombre del usuario autenticado -->
