@@ -36,9 +36,12 @@ class CategoriaController extends Controller
         //
         $request->validate([
             'nombre' => 'required|string|max:255',
+            'descripcion' => 'nullable|string|max:50',
+            'musculos_trabaja' => 'nullable|string|max:50',
+            'nivel_fatiga' => 'required|integer|min:1',
         ]);
 
-        Ejercicio::create($request->all());
+        Categoria::create($request->all());
 
         return redirect()->route('categorias.index')->with('success','Categoría creada exitosamente.');
     }
@@ -68,6 +71,9 @@ class CategoriaController extends Controller
         //Modificaciones categorias
         $request->validate([
             'nombre' => 'required|string|max:255',
+            'descripcion' => 'nullable|string|max:50',
+            'musculos_trabaja' => 'nullable|string|max:50',
+            'nivel_fatiga' => 'required|integer|min:1',
         ]);
 
         $categoria->update($request->all());
@@ -82,6 +88,6 @@ class CategoriaController extends Controller
     {
         //Eliminar
         $categoria->delete();
-        return redirect()->routeroute('categorias.index')->with('success', 'Categoría eliminada.');
+        return redirect()->route('categorias.index')->with('success', 'Categoría eliminada.');
     }
 }

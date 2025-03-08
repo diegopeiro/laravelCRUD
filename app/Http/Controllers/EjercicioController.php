@@ -35,6 +35,7 @@ class EjercicioController extends Controller
      */
     public function create()
     {
+        
         //Devuelvo la vista ejercicios.create.blade
         return view('ejercicios.create');
     }

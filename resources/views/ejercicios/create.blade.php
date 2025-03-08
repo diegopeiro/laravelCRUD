@@ -28,10 +28,18 @@
             <input type="number" name="duracion" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300" value="{{ old('duracion', $ejercicio->duracion ?? '') }}">
         </div>
 
+        <!--Con un select recoger los tipos de categorías de la tabla categoria para poder elegir
         <div>
-            <label for="categoria" class="block text-gray-700 font-medium">Categoría</label>
-            <input type="text" name="categoria" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300" value="{{ old('categoria', $ejercicio->categoria ?? '') }}">
-        </div>
+            <label for="categoria_id" class="block text-gray-700 font-medium">Categoría</label>
+            <select name="categoria_id" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300">
+                <option value="">Selecciona una categoría</option>
+                @foreach($categorias as $categoria)
+                    <option value="{{ $categoria->id }}" {{ (old('categoria_id', $ejercicio->categoria_id ?? '') == $categoria->id) ? 'selected' : '' }}>
+                        {{ $categoria->nombre }}
+                    </option>
+                @endforeach
+            </select>
+        </div>-->
 
         <div class="flex justify-between items-center mt-4">
             <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition">
