@@ -4,12 +4,17 @@
         <a href="{{ route('dashboard') }}" class="font-bold text-lg">🏀 Entrenamiento</a>
 
         <!-- Menú de navegación -->
+        <div class="flex justify-center flex-grow">
+            <!--Centro los enlaces a las tablas-->
+            <div class="flex space-x-4">
+                <!--Enlace a tabla Categorías-->
+                <a href="{{ route('categorias.index') }}" class="hover:underline">Categorias</a>
+                <!--Enlace a tabla Ejercicios-->
+                <a href="{{ route('ejercicios.index') }}" class="hover:underline">Ejercicios</a>
+            </div>
+        </div>
+                
         <div class="flex items-center space-x-4">
-            <!--Enlace a tabla Ejercicios-->
-            <a href="{{ route('ejercicios.index') }}" class="hover:underline">Ejercicios</a>
-            <!--Enlace a tabla Categorías-->
-            <a href="{{ route('categorias.index') }}" class="hover:underline">Categoría</a>
-
             @auth
                 <!-- Mostrar nombre del usuario autenticado -->
                 <span class="font-semibold">Bienvenido, {{ auth()->user()->name }}</span>
